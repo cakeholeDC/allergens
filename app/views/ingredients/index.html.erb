@@ -1,0 +1,10 @@
+<h1>All Ingredients</h1>
+
+<%= button_to "Add Ingredient", new_ingredient_path, method: "get" %>
+
+<!-- NEED TO SORT -->
+<ul>
+	<% @ingredients.each do |ingredient| %>
+		<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+	<% end %>
+</ul>

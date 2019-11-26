@@ -1,0 +1,12 @@
+<h1><%= @ingredient.name %></h1>
+
+<%= button_to "Edit Ingredient", edit_ingredient_path(@ingredient), method: "get" %>
+<!-- <%= button_to "Delete Ingredient", ingredient_path(@ingredient), method: "delete" %> -->
+
+<!-- NEED TO SORT -->
+<h2>Recipes using <%= @ingredient.name %></h2>
+<ul>
+	<% @ingredient.recipes.each do |recipe| %>
+		<li><%= link_to recipe.name, recipe_path(recipe) %></li>
+	<% end %>
+</ul>

@@ -1,0 +1,9 @@
+<h1>All Recipes</h1>
+
+<%= button_to "Create a new Recipes", new_recipe_path, method: "GET" %>
+
+<ul>
+<% @recipes.each do |recipe| %>
+	<li><%= link_to recipe.name, recipe_path(recipe) %></li>
+<% end %>
+</ul>

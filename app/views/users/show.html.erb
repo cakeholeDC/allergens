@@ -1,0 +1,8 @@
+<h1> <%= @user.name %> </h1>
+
+<%= button_to "Edit user", edit_user_path(@user), method: 'get' %>
+<%= button_to "Delete user", user_path(@user), method: 'delete' %>
+
+<h2>Recipes to come</h2>
+
+<h2>Allergies to come</h2>

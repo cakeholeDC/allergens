@@ -11,20 +11,19 @@ class RecipesController < ApplicationController
 	end
 
 	def create
-		# byebug
-		
 		user = User.find_or_create_by(name: strong_params[:user_name])
 		recipe = user.recipes.build(recipe_strong_params)
 		
 		ingredient = recipe.find_ingredient_from_params_array(strong_params[:ingredients])
-		# @recipe = ingredient.recipes.build(strong_params)
 		recipe.save!
 
 		redirect_to recipe_path(recipe)
 	end
 
 	def update
-
+		@recipe.update(recipe_strong_params)
+		@recipe.find_ingredient_from_params_array(strong_params[:ingredients])
+		redirect_to recipe_path(@recipe)
 	end
 
 

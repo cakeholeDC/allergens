@@ -3,6 +3,10 @@
 <%= button_to "Edit user", edit_user_path(@user), method: 'get' %>
 <%= button_to "Delete user", user_path(@user), method: 'delete' %>
 
-<h2>Recipes to come</h2>
-
-<h2>Allergies to come</h2>
+<h2>Recipes Submitted by <%= @user.name %> </h2>
+<ul>
+	<% @user.recipes.each do |recipe| %>
+		<li><%= link_to recipe.name, recipe_path(recipe) %></li>
+	<% end %>
+</ul>
+<!-- <h2>Allergies to come</h2> -->

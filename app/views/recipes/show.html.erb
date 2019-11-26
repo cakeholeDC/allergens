@@ -1,5 +1,7 @@
 <h1><%= @recipe.name %></h1>
 
+<%= button_to "Edit Recipe", edit_recipe_path(@recipe), method: "get" %>
+
 <h4><%= @recipe.description %></h4>
 
 <p><%= @recipe.directions %></p>

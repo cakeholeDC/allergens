@@ -3,24 +3,29 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<%= f.label :description %>
-	<%= f.text_area :description%>
+	<%= f.text_area :description %>
 	<%= f.label :directions %>
-	<%= f.text_area :directions%>
+	<%= f.text_area :directions %>
 
 	<%= f.label :user_name %>
 	<%= f.text_field :user_name, list: "all_users" %>
 
 	<datalist id="all_users">
 		<% User.all.each do |user| %>
-			<option value="<%=user.name%>">
+			<option value="<%= user.name %>">
 		<%end%>
 	</datalist>
 
+	<div>
+	<label>All Ingredients</label>
+		<% Ingredient.all.each do |ingredient| %>
+			<div>
+				<%= f.check_box :ingredients,  { multiple: true }, ingredient.id, false %>
+				<label> <%= ingredient.name %></label>
+			</div>
+		<% end %>
 
-
-
-
+	</div>
 	<%= f.submit submit_text %>
 
-		
 <%end%>

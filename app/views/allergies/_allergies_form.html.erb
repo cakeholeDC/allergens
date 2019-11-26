@@ -1,0 +1,24 @@
+
+<%= form_for @allergy do |f| %>
+	<label>Who's allergy is this?</label>
+	<%= f.text_field :user_id, list: "all_users" %>
+
+	<datalist id="all_users">
+		<% User.all.each do |user| %>
+			<option value="<%= user.id %>"><%= user.name %></option>
+		<%end%>
+	</datalist>
+
+	<div>
+		<label>What are they allergic to?</label>
+		<%= f.text_field :ingredient_id, list: "all_ingredients" %>
+
+		<datalist id="all_ingredients">
+			<% Ingredient.all.each do |ingredient| %>
+				<option value="<%= ingredient.id %>"><%= ingredient.name %> </option>
+			<% end %>
+		</datalist>
+	</div>
+	<%= f.submit submit_text %>
+
+<%end%>
